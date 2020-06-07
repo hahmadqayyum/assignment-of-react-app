@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: react app deploy
+name: react deploy
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -26,17 +26,16 @@ jobs:
     - name: installing nodejs
       uses: actions/setup-node@v2-beta
       with:
-        node-version: 12 
+        node-version: 12  
 
     # Runs a set of commands using the runners shell
     - name: installing yarn
       uses: borales/actions-yarn@v2.0.0
       with:
         cmd: install 
-    - name: building react app
+    - name: buildreact app
       run: yarn build
     - name: installing surge
-      run: npm install -g surge
-    - name: deploying on surge
-      run: surge ./build panacloud-class3-assignment-reactapp123123.surge.sh --token ${{ secrets.SURGE_TOKEN }}      
-        
+      run: npm install --global surge
+    - name: deploying 
+      run: surge ./build panacloud-boot123-ASSIGNMW=DJFLIcamp-class3_reactapp-ahmad.surge.sh --token ${{secrets.SURGE_TOKEN}}
